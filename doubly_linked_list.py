@@ -22,3 +22,12 @@ class Node:
         self.value = value
         self.next = None
         self.prev = None
+
+    def __str__(self):
+        '''
+        Returns a string representation of the node.
+
+        Returns:
+            str: String representation of the node.
+        '''
+        return f'Node({str(self.value)})'
