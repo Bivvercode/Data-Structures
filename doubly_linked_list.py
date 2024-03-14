@@ -49,3 +49,20 @@ class DoublyLinkedList:
         if args:
             pass
     
+    def __str__(self):
+        '''
+        Returns a string representation of the linked list.
+
+        Returns:
+            str: String representation of the linked list.
+        '''
+        current_node = self.head
+        result_string = ''
+
+        while current_node:
+            result_string += str(current_node)
+            if current_node.next:
+                result_string += ' <=> '
+            current_node = current_node.next
+        
+        return result_string
