@@ -42,4 +42,11 @@ class DoublyLinkedList:
         length: The number of nodes in the linked list.
     '''
     def __init__(self, *args):
-        pass
+        self.head = None
+        self.tail = None
+        self.length = None
+
+        if args:
+            pass
+    
+    
