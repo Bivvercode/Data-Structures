@@ -67,6 +67,28 @@ class DoublyLinkedList:
         
         return result_string
     
+    def append_node(self, node):
+        '''
+        Appends a node to the end of the linked list.
+
+        Parameters:
+            node: The node to append to the linked list.
+
+        Raises:
+            TypeError: If the argument is not of type: Node.
+        '''
+        if not isinstance(node, Node):
+            raise TypeError("Invalid node type. Expected Node instance.")
+        
+        if self.head:
+            self.tail.next = node
+            node.prev = self.tail
+        else:
+            self.head = node
+        
+        self.tail = node
+        self.length += 1
+    
     def append(self, value):
         '''
         Appends a new node with the given value to the end of the linked list.
