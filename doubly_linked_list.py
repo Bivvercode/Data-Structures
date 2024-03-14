@@ -42,12 +42,28 @@ class DoublyLinkedList:
         length: The number of nodes in the linked list.
     '''
     def __init__(self, *args):
+        '''
+        Initializes a new instance of the DoublyLinkedList class.
+
+        Parameters:
+            *args (optional): Variable number of values or node instances to initialize the linked list.
+                If provided, nodes will be created for each value and appended to the linked list in the order they are given.
+                If a node instance is provided, it will be appended directly.
+                If a raw value is provided, a node will be created for it and appended to the linked list.
+
+        Raises:
+            TypeError: If a value cannot be converted to a Node instance.
+        '''
         self.head = None
         self.tail = None
         self.length = 0
 
-        if args:
-            pass
+        for arg in args:
+            if isinstance(arg, Node):
+                self.append_node(arg)
+            else:
+                self.append(arg)
+            
     
     def __str__(self):
         '''
@@ -106,3 +122,4 @@ class DoublyLinkedList:
         
         self.tail = node_to_append
         self.length += 1
+
