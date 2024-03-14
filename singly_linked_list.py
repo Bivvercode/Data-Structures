@@ -33,6 +33,11 @@ class Node:
 class LinkedList:
     '''
     Represents a singly linked list data structure.
+
+    Attributes:
+        head: The first node in the linked list.
+        tail: The last node in the linked list.
+        length: The number of nodes in the linked list.
     '''
     def __init__(self, *args):
         '''
