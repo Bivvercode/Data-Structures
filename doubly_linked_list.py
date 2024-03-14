@@ -44,7 +44,7 @@ class DoublyLinkedList:
     def __init__(self, *args):
         self.head = None
         self.tail = None
-        self.length = None
+        self.length = 0
 
         if args:
             pass
@@ -66,3 +66,21 @@ class DoublyLinkedList:
             current_node = current_node.next
         
         return result_string
+    
+    def append(self, value):
+        '''
+        Appends a new node with the given value to the end of the linked list.
+
+        Parameters:
+            value: The value to be stored in the new node.
+        '''
+        node_to_append = Node(value)
+
+        if self.head:
+            self.tail.next = node_to_append
+            node_to_append.prev = self.tail
+        else:
+            self.head = node_to_append
+        
+        self.tail = node_to_append
+        self.length += 1
