@@ -182,10 +182,10 @@ class LinkedList:
         if not isinstance(node, Node):
             raise TypeError("Invalid node type. Expected Node instance.")
         
-        if self.head is None:
-            self.head = node
-        else:
+        if self.head:
             self.tail.next = node
+        else:
+            self.head = node
         
         self.tail = node
         self.length += 1
