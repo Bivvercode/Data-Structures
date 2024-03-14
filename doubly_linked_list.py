@@ -34,7 +34,7 @@ class Node:
     
 class DoublyLinkedList:
     '''
-    Represents a singly linked list data structure.
+    Represents a doubly linked list data structure.
 
     Attributes:
         head: The first node in the linked list.
@@ -48,5 +48,4 @@ class DoublyLinkedList:
 
         if args:
             pass
-    
     
