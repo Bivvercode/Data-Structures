@@ -83,6 +83,23 @@ class DoublyLinkedList:
         
         return result_string
     
+    def __contains__(self, value):
+        '''
+        Check if the linked list contains the given value.
+
+        Parameters:
+            value: The value to search for in the linked list.
+
+        Returns:
+            bool: True if the value is found in the linked list, False otherwise.
+        '''
+        current = self.head
+        while current:
+            if current.value == value:
+                return True
+            current = current.next
+        return False
+    
     def append_node(self, node):
         '''
         Appends a node to the end of the linked list.
