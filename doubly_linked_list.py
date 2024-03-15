@@ -140,3 +140,20 @@ class DoublyLinkedList:
         self.tail = node_to_append
         self.length += 1
 
+    def prepend(self, value):
+        '''
+        Prepends a new node with the given value to the beginning of the linked list.
+
+        Parameters:
+            value: The value to be stored in the new node.
+        '''
+        node_to_prepend = Node(value)
+        
+        if self.head:
+            self.head.prev = node_to_prepend
+            node_to_prepend.next = node_to_prepend
+        else:
+            self.tail = node_to_prepend
+        
+        self.head = node_to_prepend
+        self.length += 1
