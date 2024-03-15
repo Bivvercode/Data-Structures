@@ -16,7 +16,7 @@ class Node:
         Raises:
             ValueError: If the value is None.
         '''
-        if not value:
+        if value is None:
             raise ValueError("Node value cannot be None")
         
         self.value = value
@@ -148,7 +148,7 @@ class DoublyLinkedList:
             value: The value to be stored in the new node.
         '''
         node_to_prepend = Node(value)
-        
+
         if self.head:
             self.head.prev = node_to_prepend
             node_to_prepend.next = node_to_prepend
