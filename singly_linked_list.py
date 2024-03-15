@@ -15,7 +15,7 @@ class Node:
         Raises:
             ValueError: If the value is None.
         '''
-        if not value:
+        if value is None:
             raise ValueError("Node value cannot be None")
         
         self.value = value
@@ -234,7 +234,7 @@ class LinkedList:
         Raises:
             ValueError: If index is out of range.
         '''
-        if index < 0 or index > self.length:
+        if index < -(self.length) or index > self.length:
             raise ValueError("Index out of range")
 
         node_to_insert = Node(value)
@@ -245,6 +245,12 @@ class LinkedList:
         elif index == 0:
             node_to_insert.next = self.head
             self.head = node_to_insert
+        elif index < 0:
+            current = self.head
+            for _ in range(self.length+index):
+                current = current.next
+            node_to_insert.next = current.next
+            current.next = node_to_insert
         else:
             current = self.head
             for _ in range(index - 1):
