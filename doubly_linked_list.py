@@ -157,3 +157,42 @@ class DoublyLinkedList:
         
         self.head = node_to_prepend
         self.length += 1
+
+    def insert(self, index, value):
+        '''
+        Inserts a new node with the given value to the linked list at the given index.
+
+        Parameters:
+            index: The index the new node will be inserted at.
+            value: The value to be stored in the new node.
+        
+        Raises:
+            ValueError: If index is out of range.
+        '''
+        if index < -(self.length) or index > self.length:
+            raise ValueError("Index out of range")
+        
+        node_to_insert = Node(value)
+
+        if not self.head:
+            self.head = node_to_insert
+            self.tail = node_to_insert
+        elif index == 0:
+            node_to_insert.next = self.head
+            self.head.prev = node_to_insert
+            self.head = node_to_insert
+        elif index < 0:
+            current = self.head
+            for _ in range(self.length+index):
+                current = current.next
+            node_to_insert.next = current.next
+            node_to_insert.prev = current
+            current.next = node_to_insert
+        else:
+            current = self.head
+            for _ in range(index-1):
+                current = current.next
+            node_to_insert.next = current.next
+            node_to_insert.prev = current
+            current.next = node_to_insert
+        self.length += 1
