@@ -169,7 +169,7 @@ class DoublyLinkedList:
         Raises:
             ValueError: If index is out of range.
         '''
-        if index < -(self.length) or index > self.length:
+        if index < -(self.length+1) or index > self.length:
             raise ValueError("Index out of range")
         
         node_to_insert = Node(value)
@@ -177,22 +177,41 @@ class DoublyLinkedList:
         if not self.head:
             self.head = node_to_insert
             self.tail = node_to_insert
-        elif index == 0:
+        elif index == 0 or index == -(self.length+1):
             node_to_insert.next = self.head
             self.head.prev = node_to_insert
             self.head = node_to_insert
+        elif index == self.length:
+            self.tail.next = node_to_insert
+            node_to_insert.prev = self.tail
+            self.tail = node_to_insert
         elif index < 0:
-            current = self.head
-            for _ in range(self.length+index):
-                current = current.next
+            if abs(index) <= (self.length//2):
+                current = self.head
+                for _ in range(self.length+index):
+                    current = current.next
+            else:
+                current = self.tail
+                for _ in range(abs(index) - 1):
+                    current = current.prev
             node_to_insert.next = current.next
             node_to_insert.prev = current
+            current.next.prev = node_to_insert
             current.next = node_to_insert
         else:
-            current = self.head
-            for _ in range(index-1):
-                current = current.next
+            if index <= (self.length // 2):
+                print("Start from head")
+                current = self.head
+                for _ in range(index - 1):
+                    current = current.next
+            else:
+                print("Start from tail")
+                current = self.tail
+                for _ in range(self.length - index):
+                    current = current.prev
             node_to_insert.next = current.next
             node_to_insert.prev = current
+            current.next.prev = node_to_insert
             current.next = node_to_insert
         self.length += 1
+        
