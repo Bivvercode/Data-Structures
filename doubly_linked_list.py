@@ -214,4 +214,15 @@ class DoublyLinkedList:
             current.next.prev = node_to_insert
             current.next = node_to_insert
         self.length += 1
-        
+
+    def find(self, value):
+        current = self.head
+        index = 0
+
+        while current:
+            if current.value == value:
+                return index
+            index += 1
+            current = current.next
+
+        return -1
