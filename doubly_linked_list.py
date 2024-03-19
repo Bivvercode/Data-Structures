@@ -226,3 +226,30 @@ class DoublyLinkedList:
             current = current.next
 
         return -1
+
+    def get(self, index):
+        if index >= self.length or index < -(self.length):
+            raise IndexError("Index out of range")
+        
+        if index < 0:
+            if abs(index) <= (self.length//2):
+                current = self.head
+                for _ in range(self.length+index):
+                    current = current.next
+                return current
+            else:
+                current = self.tail
+                for _ in range(abs(index) - 1):
+                    current = current.prev
+                return current
+        else:
+            if abs(index) <= (self.length//2):
+                current = self.head
+                for _ in range(index):
+                    current = current.next
+                return current
+            else:
+                current = self.tail
+                for _ in range(self.length-index-1):
+                    current = current.prev
+                return current
