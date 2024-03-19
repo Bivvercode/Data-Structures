@@ -216,6 +216,15 @@ class DoublyLinkedList:
         self.length += 1
 
     def find(self, value):
+        '''
+        Searches for the given value in the linked list and returns the index of the first occurrence.
+
+        Parameters:
+            value: The value to search for in the linked list.
+
+        Returns:
+            index: The index of the first occurrence of the value. If the value is not found, returns -1.
+        '''
         current = self.head
         index = 0
 
