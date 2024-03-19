@@ -228,6 +228,18 @@ class DoublyLinkedList:
         return -1
 
     def get(self, index):
+        '''
+        Returns the node located at the given index.
+
+        Parameters:
+            index: The index of the node in the linked list.
+
+        Returns:
+            node: The node located at the given index.
+
+        Raises:
+            IndexError: If the index is out of range.
+        '''
         if index >= self.length or index < -(self.length):
             raise IndexError("Index out of range")
         
