@@ -289,4 +289,27 @@ class DoublyLinkedList:
         node_to_change = self.get(index)
 
         node_to_change.value = value
+
+    def pop_first(self):
+        '''
+        Removes first node from the linked list and returns the node.
+
+        Returns:
+            node: The removed node which was located at index 0.
+        Raises:
+            IndexError: If the linked list is empty and there are no nodes to pop.
+        '''
+        if not self.head:
+            raise IndexError("Cannot pop from an empty linked list")
+        node_to_pop = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head.next.prev = None
+            self.head = self.head.next
+            node_to_pop.next = None
         
+        self.length -= 1
+        return node_to_pop
+    
