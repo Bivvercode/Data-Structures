@@ -274,3 +274,19 @@ class DoublyLinkedList:
                 for _ in range(self.length-index-1):
                     current = current.prev
                 return current
+
+    def set_value(self, index, value):
+        '''
+        Sets the given value to the node located at the given index. 
+
+        Parameters:
+            index: The index of the node in the linked list.
+            value: The value to give the node.
+        
+        Raises:
+            IndexError: If the index is out of range.
+        '''
+        node_to_change = self.get(index)
+
+        node_to_change.value = value
+        
