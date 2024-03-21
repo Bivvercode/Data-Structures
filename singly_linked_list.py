@@ -320,10 +320,7 @@ class LinkedList:
         '''
         node_to_change = self.get(index)
 
-        if node_to_change:
-            node_to_change.value = value
-        else:
-            raise IndexError("Index out of range")
+        node_to_change.value = value
     
     def pop_first(self):
         '''
